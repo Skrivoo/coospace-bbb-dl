@@ -1,4 +1,18 @@
 #!/bin/bash
+
+if [[ -z $(command -v mkvextract)  ]]; then
+       	echo "Nincs telepitve az mktoolnix"
+	read -p "Szeretned telepiteni?[Y/N]: " answer
+	if [[ $answer == *"Y" ]]
+       	then
+		sudo apt-get install mkvtoolnix
+	else
+		exit 1
+	fi
+
+	
+fi
+
 case $1 in
 		"-h")
 		echo "Syntax: script.sh -i [bemeneti link] -o [eloadas neve]."
